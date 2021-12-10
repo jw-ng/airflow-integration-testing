@@ -1,0 +1,2 @@
+DOCUMENT_STORE_CONNECTION_ID = "document_store"
+DOCUMENT_STORE_COLLECTION_NAME = "document_store"
