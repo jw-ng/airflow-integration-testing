@@ -21,7 +21,19 @@ A non-zero exit code from the above command implies that there are failing integ
    ```sh
    make manual_testing
    ```
-2. Open an interactive shell into the `test-runner` container to start inputting your test commands
+2. Wait for the good-to-go from test-runner
+   ```sh
+   docker logs test-runner -f
+   ```
+   - If you see this as the last line in the logs, wait a while more:
+     ```
+     🕐       Waiting for Airflow Web server to be ready...
+     ```
+   - Once you see this, we're good to go (`CTRL+C` to exit log-watching mode)
+      ```
+      Airflow Web server is good to go!
+      ```
+4. Open an interactive shell into the `test-runner` container to start inputting your test commands
    ```sh
    docker exec -it test-runner bash
    ```
