@@ -2,6 +2,20 @@
 
 This project demonstrates how we can use docker-compose with pytest to run an integration test suite for Airflow DAGs.
 
+## Setting up
+
+This project uses a `.envrc` file to set up the necessary environment variables used for the integration test.
+
+To begin, make a copy of the `.envrc.template` file and named the copy as `.envrc`:
+
+```sh
+cp .envrc.template .envrc
+```
+
+Next, replace the variables with value `<SECRET_STRING_TO_BE_FILLED_IN>` with actual value of your choice.
+These secrets are used automatically in the set up by Docker Compose and within the pytest test suites. No secrets are 
+needed to be checked in.
+
 ## Running the integration tests
 
 ### Running all integration tests automatically
