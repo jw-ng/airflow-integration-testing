@@ -12,11 +12,19 @@ class TestSampleDag:
         document_store_mongo_collection,
     ):
         document_store_mongo_collection.insert_one(
-            {"source": "some_source", "date": "2021-12-10", "value": 42}
+            {
+                "source": "some_source",
+                "date": "2021-12-10",
+                "value": 42,
+            }
         )
 
         run_id = f'test_run_id_{datetime.now().strftime("%d%m%Y-%H%M%S")}'
-        airflow_api.trigger_dag(dag_id=sample_dag_id, run_id=run_id, conf={"source_name": "some_source"})
+        airflow_api.trigger_dag(
+            dag_id=sample_dag_id,
+            run_id=run_id,
+            conf={"source_name": "some_source"},
+        )
         airflow_api.wait_for_dag_to_complete(
             dag_id=sample_dag_id,
             run_id=run_id,
