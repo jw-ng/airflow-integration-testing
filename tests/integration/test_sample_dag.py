@@ -11,6 +11,7 @@ class TestSampleDag:
         airflow_api,
         document_store_mongo_collection,
     ):
+        document_store_mongo_collection.delete_many({"source": "some_source"})
         document_store_mongo_collection.insert_one(
             {
                 "source": "some_source",
